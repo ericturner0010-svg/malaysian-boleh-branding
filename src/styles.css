@@ -138,17 +138,6 @@
   }
 }
 
-@utility eyebrow-rule {
-  position: relative;
-  padding-left: 1.75rem;
-  font-size: 0.8125rem;
-  letter-spacing: 0.01em;
-  color: var(--muted-foreground);
-}
-@utility eyebrow-rule-line {
-  content: "";
-}
-
 @utility gold-underline {
   background-image: linear-gradient(var(--gold), var(--gold));
   background-repeat: no-repeat;
