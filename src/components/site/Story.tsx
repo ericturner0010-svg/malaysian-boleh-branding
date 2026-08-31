@@ -51,7 +51,7 @@ export function Story() {
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
-            const i = Number((e.target as HTMLElement).dataset.index);
+            const i = Number((e.target as HTMLElement).dataset["index"]);
             setActive(i);
           }
         });

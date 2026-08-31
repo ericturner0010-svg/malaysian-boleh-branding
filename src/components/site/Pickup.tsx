@@ -10,7 +10,7 @@ export function Pickup() {
   const [placed, setPlaced] = useState(false);
 
   const lines = useMemo(
-    () => dishes.filter((d) => (qty[d.name] ?? 0) > 0).map((d) => ({ ...d, n: qty[d.name] })),
+    () => dishes.filter((d) => (qty[d.name] ?? 0) > 0).map((d) => ({ ...d, n: qty[d.name] ?? 0 })),
     [qty],
   );
   const total = lines.reduce((sum, l) => sum + l.price * l.n, 0);
