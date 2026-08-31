@@ -1,24 +1,49 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ThemeProvider } from "@/components/site/theme";
+import { Navbar } from "@/components/site/Navbar";
+import { Hero } from "@/components/site/Hero";
+import { Dishes } from "@/components/site/Dishes";
+import { Story } from "@/components/site/Story";
+import { Chefs } from "@/components/site/Chefs";
+import { Gallery } from "@/components/site/Gallery";
+import { Reservations } from "@/components/site/Reservations";
+import { Pickup } from "@/components/site/Pickup";
+import { Location } from "@/components/site/Location";
+import { Footer } from "@/components/site/Footer";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Malaysia Boleh — Authentic Malaysian Restaurant in Farringdon";
+const description =
+  "Authentic Malaysian cuisine and hospitality in Farringdon, London. Nasi lemak, curry laksa, roti canai and Hainanese chicken rice. Book a table or order pickup.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "restaurant" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <ThemeProvider>
+      <Navbar />
+      <main>
+        <Hero />
+        <Dishes />
+        <Story />
+        <Chefs />
+        <Gallery />
+        <Reservations />
+        <Pickup />
+        <Location />
+      </main>
+      <Footer />
+    </ThemeProvider>
   );
 }
